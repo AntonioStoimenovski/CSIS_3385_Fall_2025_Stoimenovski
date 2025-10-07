@@ -1,10 +1,10 @@
 # Use official Python image
 FROM python:3.11-slim
 
-# Set working directory
+# Set working directory 
 WORKDIR /app
 
-# Copy app and data
+# Copy app and data .
 COPY app.py /app/app.py
 COPY seed.json /app/seed.json
 COPY requirements.txt /app/requirements.txt
