@@ -1,0 +1,19 @@
+When I revised the form, the biggest changes I made were making it valid, easier to use, and more
+ secure. First, I changed the form method from DELETE to POST because HTML forms only work
+ with GET and POST, so the browser could actually send the data correctly. I also fixed all the input
+ types like using text for the username, password for the password, number for age, and email for
+ email so that the browser can help check the data automatically. I made sure every input had a
+ proper <label> with the for attribute so that it’s clear which label belongs to which input, which
+ also helps with accessibility.
+
+For validation, I added rules that make sense for each field. For example, the password needs to
+ have a minimum and maximum length and at least one letter and one number. The age field has a
+ minimum and maximum value. The message field is limited to 10 words using JavaScript, and
+ there’s a small live counter so users can see how many words they typed. I also added required to
+ fields so the form can’t be submitted incomplete, and used placeholders and autocomplete to make
+ it easier to fill out.
+
+
+Ethical Integrity Declaration:
+I, Antonio Stoimenovski, affirm that all work submitted in this case study is my own. I have not used AI tools, AI-generated text, or AI-based writing assistants (such as ChatGPT, Gemini, Grammarly AI, etc.) in the creation of this assignment. I understand that using AI tools for this project violates the spirit of ethical learning and may result in academic consequences.
+Signed: Antonio Stoimenovski Date: 11/08/2025

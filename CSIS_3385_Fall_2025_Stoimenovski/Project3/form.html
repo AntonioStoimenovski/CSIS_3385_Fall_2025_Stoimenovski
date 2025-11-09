@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Create User</title>
+	<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div class="form-container">
+  <h2>Create User</h2>
+
+	<!-- Valid form method and proper grouping -->
+	<form action="/inventory/search" method="POST" autocomplete="on" novalidate>
+		<fieldset>
+			<legend>User Information</legend>
+
+				<!-- Proper label–input pairing -->
+				<label for="username">Username:</label>
+					<input 
+						type="text" 
+						id="username" 
+						name="username" 
+						placeholder="Enter your username"
+						required 
+						minlength="3" 
+						maxlength="20" 
+						autocomplete="username"
+					/>
+
+				<!-- To be Visible and secure password field -->
+				<label for="password">Password:</label>
+					<input 
+						type="password" 
+						id="password" 
+						name="password" 
+						placeholder="Enter a secure password"
+						required 
+						minlength="8" 
+						maxlength="32" 
+						autocomplete="new-password"
+						pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d!@#$%^&*()_+]{8,32}$"
+						title="Password must be 8–32 characters, with at least one letter and one number."
+					/>
+
+				<!-- Numeric validation -->
+				<label for="age">Age:</label>
+					<input 
+						type="number" 
+						id="age" 
+						name="age" 
+						min="13" 
+						max="120" 
+						required
+						placeholder="Your age"
+					/>
+
+			    <!--  Email validation -->
+			    <label for="email">Email:</label>
+					<input 
+						type="email" 
+						id="email" 
+						name="email" 
+						placeholder="you@example.com"
+						required 
+						autocomplete="email"
+					/>
+		</fieldset>
+
+    <!-- Message field with 10-word limit -->
+		<fieldset>
+			<legend>Message</legend>
+
+			<label for="message">Message (10 words or less):</label>
+			<textarea 
+				id="message" 
+				name="message" 
+				rows="3"
+				placeholder="Enter a short message"
+				required 
+				maxlength="200"
+			></textarea>
+			<small id="wordCount">0 / 10 words</small>
+		</fieldset>
+
+    <button type="submit">Submit</button>
+  </form>
+</div>
+
+<!-- JS word-count validation -->
+<script>
+	const messageField = document.getElementById('message');
+	const wordCountDisplay = document.getElementById('wordCount');
+
+	messageField.addEventListener('input', () => {
+		const words = messageField.value.trim().split(/\s+/).filter(Boolean);
+		const wordCount = words.length;
+		wordCountDisplay.textContent = `${wordCount} / 10 words`;
+    if (wordCount > 10) {
+		messageField.setCustomValidity('Please limit your message to 10 words or less.');
+
+    } 
+	else {
+      messageField.setCustomValidity('');
+    }
+  });
+</script>
+
+</body>
+</html>
